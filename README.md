@@ -1,6 +1,5 @@
 # Task
 
-
 ### By completing this task, you will:
 - Learn how to organize microservice interactions via RESTful API
 - Learn how to work with the BFF (Backend-for-Frontend) pattern
