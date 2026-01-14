@@ -1,36 +1,36 @@
-# Задание
+# Task
 
 
-### Выполнив это задание, вы:
-- Научитесь организовывать взаимодействие микросервисов через RESTful API
-- Научитесь работать с паттерном BFF (Backend-for-Frontend)
+### By completing this task, you will:
+- Learn how to organize microservice interactions via RESTful API
+- Learn how to work with the BFF (Backend-for-Frontend) pattern
 
-### Инструменты и материалы, которые пригодятся для выполнения задания
-- IntellijIDE 
-- http-клиент
+### Tools and materials that will be useful for completing the task
+- IntellijIDE
+- HTTP client
 
-### Описание задания
-Необходимо создать два микросервиса, они должны иметь REST API, которое будет предоставлять информацию для BFF-микросервиса. BFF должен получать клиентский запрос, вызывать оба микросервиса, собирать полученную информацию от микросервисов в один объект и возвращать клиенту.
+### Task description
+You need to create two microservices. They must have a REST API that will provide information to the BFF microservice. The BFF must receive a client request, call both microservices, collect the information received from the microservices into a single object, and return it to the client.
 
-### Инструкция к выполнению
-1. Создать микросервис, хранящий информацию о пользователях.
-- Информация должна быть доступна с помощью http.
-- Использовать RestController из spring-boot-starter-web.
-- Информация о пользователе должна быть доступна через endpoint GET /api/users/{userId}
-2. Создать микросервис, хранящий информацию о заказах пользователя.
-- Информация должна быть доступна с помощью http.
-- Использовать RestController из spring-boot-starter-web.
-- Информация о заказах пользователя должна быть доступна через endpoint GET /api/orders/by-user/{user}
-3. Создать микросервис, реализующий паттерн BFF.
-- Информация должна быть доступна с помощью http.
-- Использовать RestController из spring-boot-starter-web.
-- Информация о профиле пользователя и его заказах должна быть доступна через endpoint /api/site-bff/user/{userId}.
-- При получении запроса сервис должен отправлять запрос для получения данных в каждый из микросервисов, агрегировать полученные данные и возвращать полученный результат.
-### Модели данных:
-- Для микросервиса пользователей User должен содержать Id, ФИО, адрес доставки, номер телефона, email
-- Для микросервиса заказов Order должен содержать Id, UserId, сумму заказа, валюту заказа, список позиций в заказе
-- Для микросервиса BFF необходимо создать общую модель данных, которая будет содержать в себе информацию и о пользователе, и о его заказах.
+### Instructions
+1. Create a microservice that stores user information.
+- The information must be accessible via HTTP.
+- Use RestController from spring-boot-starter-web.
+- User information must be accessible via the GET /api/users/{userId} endpoint.
+2. Create a microservice that stores user order information.
+- The information must be accessible via http.
+- Use RestController from spring-boot-starter-web.
+- User order information must be accessible via the GET /api/orders/by-user/{user} endpoint.
+3. Create a microservice that implements the BFF pattern.
+- Information must be accessible via HTTP.
+- Use RestController from spring-boot-starter-web.
+- Information about the user's profile and orders must be accessible via the endpoint /api/site-bff/user/{userId}.
+- When a request is received, the service must send a request to each of the microservices to obtain data, aggregate the received data, and return the result.
+### Data models:
+- For the User microservice, it must contain Id, full name, delivery address, phone number, email
+- For the Order microservice, it must contain Id, UserId, order amount, order currency, list of items in the order
+- For the BFF microservice, it is necessary to create a common data model that will contain information about both the user and their orders.
 
-4. Для тестирования
-· Необходимо запустить все три микросервиса, отправить запрос на BFF и проверить полученный ответ.
-· Сервис BFF не должен хранить в себе никаких данных. Его задача – обращаться к другим сервисам, получать данные от них, агрегировать и преобразовывать в удобный формат для конечного потребителя.
+4. For testing
+· You need to start all three microservices, send a request to BFF, and check the response.
+· The BFF service should not store any data. Its task is to contact other services, receive data from them, aggregate it, and convert it into a convenient format for the end user.
